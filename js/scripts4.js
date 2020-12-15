@@ -22,20 +22,10 @@ const gallery = document.getElementById('gallery');
 // API Requests, using Promise.all
 
     Promise.all([
-        fetch12('https://randomuser.me/api/'),
-        fetch12('https://randomuser.me/api/'),
-        fetch12('https://randomuser.me/api/'),
-        fetch12('https://randomuser.me/api/'),
-        fetch12('https://randomuser.me/api/'),
-        fetch12('https://randomuser.me/api/'),
-        fetch12('https://randomuser.me/api/'),
-        fetch12('https://randomuser.me/api/'),
-        fetch12('https://randomuser.me/api/'),
-        fetch12('https://randomuser.me/api/'),
-        fetch12('https://randomuser.me/api/'),
-        fetch12('https://randomuser.me/api/'),
+        fetch12('https://randomuser.me/api/?results=12'),
+    
     ]).then(data => { 
-        for(let i = 0; i < data.length; i++ ){
+        for(let i = 0; i < 12; i++ ){
             console.log(data);
 
             //Displaying content in the Gallery
@@ -43,12 +33,12 @@ const gallery = document.getElementById('gallery');
             const html = `
                 <div class="card">
                     <div class="card-img-container">
-                        <img class="card-img" src="${data[i].results[0].picture.large}" alt="profile picture">
+                        <img class="card-img" src="${data[0].results[i].picture.large}" alt="profile picture">
                     </div>
                     <div class="card-info-container">
-                        <h3 id="name" class="card-name cap">${data[i].results[0].name.first} ${data[i].results[0].name.last}</h3>
-                        <p class="card-text">${data[i].results[0].email}</p>
-                        <p class="card-text cap">${data[i].results[0].location.city}, ${data[i].results[0].location.state}</p>
+                        <h3 id="name" class="card-name cap">${data[0].results[i].name.first} ${data[0].results[i].name.last}</h3>
+                        <p class="card-text">${data[0].results[i].email}</p>
+                        <p class="card-text cap">${data[0].results[i].location.city}, ${data[0].results[i].location.state}</p>
                     </div>
                 </div>`
 
@@ -65,14 +55,14 @@ const gallery = document.getElementById('gallery');
                     <div class="modal">
                     <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
                     <div class="modal-info-container">
-                        <img class="modal-img" src="${data[i].results[0].picture.large}" alt="profile picture">
-                        <h3 id="name" class="modal-name cap">${data[i].results[0].name.first}</h3>
-                        <p class="modal-text">${data[i].results[0].email}</p>
-                        <p class="modal-text cap">${data[i].results[0].location.city}</p>
+                        <img class="modal-img" src="${data[0].results[i].picture.large}" alt="profile picture">
+                        <h3 id="name" class="modal-name cap">${data[0].results[i].name.first}</h3>
+                        <p class="modal-text">${data[0].results[i].email}</p>
+                        <p class="modal-text cap">${data[0].results[i].location.city}</p>
                         <hr>
-                        <p class="modal-text">${data[i].results[0].cell}</p>
-                        <p class="modal-text">${data[i].results[0].location.street.number} ${data[i].results[0].location.street.name}, ${data[i].results[0].location.city}, ${data[i].results[0].location.state} ${data[i].results[0].location.postcode}</p>
-                        <p class="modal-text">Birthday: ${data[i].results[0].dob.date[5]}${data[i].results[0].dob.date[6]}/${data[i].results[0].dob.date[8]}${data[i].results[0].dob.date[9]}/${data[i].results[0].dob.date[0]}${data[i].results[0].dob.date[1]}${data[i].results[0].dob.date[2]}${data[i].results[0].dob.date[3]}</p>
+                        <p class="modal-text">${data[0].results[i].cell}</p>
+                        <p class="modal-text">${data[0].results[i].location.street.number} ${data[0].results[i].location.street.name}, ${data[0].results[i].location.city}, ${data[0].results[i].location.state} ${data[0].results[i].location.postcode}</p>
+                        <p class="modal-text">Birthday: ${data[0].results[i].dob.date[5]}${data[0].results[i].dob.date[6]}/${data[0].results[i].dob.date[8]}${data[0].results[i].dob.date[9]}/${data[0].results[i].dob.date[0]}${data[0].results[i].dob.date[1]}${data[0].results[i].dob.date[2]}${data[0].results[i].dob.date[3]}</p>
                     </div>
                 </div>
                 `
